@@ -94,41 +94,47 @@ This starts the client where you can send your data. Both programs should run at
 
 ## How to Use
 
-### 1. Search for Available Agents
+### Step 1: Find the Agent
 
-Use the following curl command to search for registered analytics agents:
+Run this to see available agents:
 
 ```
 curl -X GET http://localhost:5002/api/search-agents
 ```
 
-### 2. Send Dataset to Analytics Agent
+You'll get back an agent address - copy it.
 
-Send a dataset to the analytics agent for visualization:
+### Step 2: Send Your Data
+
+Put your data file (like `data.csv`) in the same folder as the scripts, then run:
 
 ```
 curl -X POST http://localhost:5002/api/send-data \
 -H "Content-Type: application/json" \
 -d '{
-  "dataPath": "data.csv", # save the data with in the same directory as agent scripts. as it is taking it locally at the momement.
-  "agentAddress": "replace-with-agent-address-from-search"
+  "dataPath": "data.csv",
+  "agentAddress": "paste-the-agent-address-here"
 }'
 ```
 
-### 3. Get Dashboard URL
+### Step 3: Get Your Dashboard
 
-Poll for the generated dashboard URL:
+Check for your dashboard link by running:
 
 ```
 curl -X GET http://localhost:5002/api/get-dashboard-response
 ```
 
-If successful, you will receive a URL for the visualizations dashboard.
+Success! You'll get a URL to view your interactive dashboard.
 
-### Sample output
+## See It In Action
 
-Sample output for this can be visited on : [Youtube Video](https://youtu.be/0tDdsuaSGu4)
+Check out this [video demo](https://youtu.be/0tDdsuaSGu4) to see the dashboard in action!
 
-If you wish to learn more about fetch.ai SDK please visit [GitHub](https://github.com/fetchai/fetchai)
+## Need Help?
 
-"# Business-Analytics-Agent"
+For more details about Fetch.ai, visit their [official GitHub](https://github.com/fetchai/fetchai)
+
+---
+
+**Happy Visualizing!** 📊

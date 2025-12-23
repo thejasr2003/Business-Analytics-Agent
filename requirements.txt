@@ -1,9 +1,31 @@
-dash==2.18.2
-dash-bootstrap-components==1.4.1
-pandas==2.2.3
-plotly==5.15.0
-openai==1.55.3
-Flask==2.3.2
-fetchai==0.1.24
-python-dotenv==1.0.0
-flask_cors==5.0.0
+# ====================================
+# Data Analytics Dashboard Agent
+# Python Dependencies
+# ====================================
+
+# Web Framework & Dashboard Libraries
+# For building interactive web dashboards
+dash==2.18.2                          # Interactive web dashboards
+dash-bootstrap-components==1.4.1      # Bootstrap styling for Dash
+plotly==5.15.0                        # Interactive visualization library
+
+# Data Processing
+# For handling and analyzing data
+pandas==2.2.3                         # Data manipulation and analysis
+
+# AI & Machine Learning
+# For intelligent data analysis
+openai==1.55.3                        # OpenAI API integration (GPT models)
+
+# Backend & API
+# For server and API management
+Flask==2.3.2                          # Web server framework
+flask_cors==5.0.0                     # Cross-Origin Resource Sharing support
+
+# Agent Framework
+# For AI agent communication
+fetchai==0.1.24                       # Fetch.ai agent framework
+
+# Environment Configuration
+# For managing API keys and secrets
+python-dotenv==1.0.0                 # Load environment variables from .env file

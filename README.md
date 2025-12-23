@@ -1,90 +1,111 @@
-# Data Visualisation Dashboard Agent
+# Data Visualization Dashboard Agent
 
-Creating an AI Agent using openAI model and dash Package in python to create data visualisation dashboard for any given structured data.
+An AI-powered system that automatically creates beautiful interactive dashboards from your data using AI and Python.
 
-## Features
+## What This Project Does
 
-We have two agents in this project : 
+This project has two main parts:
 
-- **Dashboard Analytics Agent:** Processes datasets and provides insightful visualizations using GPT-based suggestions.
-- **Frontend Client:** Allows users to interact with the analytics agent by sending datasets and fetching dashboard links.
+1. **Dashboard Analytics Agent** - Receives your data and creates smart visualizations using AI (GPT)
+2. **User Client** - Lets you send data and get back a link to your dashboard
 
+The system automatically creates charts like pie charts, line graphs, and scatter plots from your data!
 
+## What You Need Before Starting
 
--**Visualization Generator:** Automatically generates visualizations such as scatter plots and pie charts for submitted datasets.
-
-## Prerequisites
-
-- Python 3.11+
-- Virtual Environment: Recommended for managing dependencies.
-- API Keys:
-    - (OpenAI API Key)[https://platform.openai.com/settings/profile/api-keys]
-    - (Fetch.ai Agentverse API Key)[https://agentverse.ai/profile/api-keys]
-    - Identity seed phrases for agents (DASHBOARD_AGENT_KEY and CLIENT_KEY), random strings to get the same agent addresses everytime.
+- **Python 3.11 or newer** - Programming language
+- **Virtual Environment** - A safe space for your project dependencies
+- **Three API Keys** (you'll get these for free):
+  - [OpenAI API Key](https://platform.openai.com/settings/profile/api-keys) - For AI/GPT features
+  - [Fetch.ai API Key](https://agentverse.ai/profile/api-keys) - For agent communication
+  - **Two random phrases** - One for the dashboard agent, one for the user client (any random text works)
 
 ## Installation
 
-### 1. Clone the Repository
+### Step 1: Copy the Project
 
 ```
 git clone https://github.com/abhifetch/dashboard-agents.git
 cd dashboard_agents
 ```
 
-### 2. Create a Virtual Environment
+### Step 2: Create a Virtual Environment
+
+Use these commands based on your computer type:
+
+**For Windows:**
+
+```
+python -m venv venv
+venv\Scripts\activate
+```
+
+**For Mac/Linux:**
 
 ```
 python3 -m venv venv
-source venv/bin/activate  # For Linux/Mac
-venv\Scripts\activate     # For Windows
+source venv/bin/activate
 ```
 
-### 3. Install Dependencies
+### Step 3: Install Required Packages
+
 ```
 pip install -r requirements.txt
 ```
 
-## Environment Variables
+## Set Up Your API Keys
 
-Create a .env file in the root directory of the project (where data_analytics_client.py and data_analytics_user.py are located).
-
-### Example .env File
+Create a file named `.env` in the main project folder. Add these lines with your actual API keys:
 
 ```
-OPENAI_API_KEY="your-openai-api-key"
-AGENTVERSE_API_KEY="your-agentverse-api-key"
-DASHBOARD_AGENT_KEY="your-dashboard-agent-seed-phrase"
-CLIENT_KEY="your-client-agent-seed-phrase"
+OPENAI_API_KEY="paste-your-openai-key-here"
+AGENTVERSE_API_KEY="paste-your-fetch-api-key-here"
+DASHBOARD_AGENT_KEY="any-random-text-here"
+CLIENT_KEY="any-random-text-here"
 ```
+
+**Where to find these:**
+
+- OpenAI key: [Get it here](https://platform.openai.com/settings/profile/api-keys)
+- Fetch.ai key: [Get it here](https://agentverse.ai/profile/api-keys)
+- Random phrases: Just type anything (they help keep your agents consistent)
 
 ## Running the Project
 
-### 1. Start the Analytics Agent
+### Step 1: Start the Dashboard Agent
 
-Run the `data_analytics_client.py` to start the dashboard analytics agent:
-
-```
-python3 data_analytics_client.py
-```
-This will register the analytics agent with Fetch.ai's Agentverse and expose the webhook endpoint.
-
-### 2. Start the Frontend Client
-Run the `data_analytics_user.py` to start the frontend client:
+Run this command in your terminal:
 
 ```
-python3 data_analytics_user.py
+python data_analytics_client.py
 ```
-This will register the user client and enable interactions with the analytics agent.
+
+This starts the AI agent that will process your data and create visualizations.
+
+### Step 2: Start the User Client
+
+In a new terminal, run:
+
+```
+python data_analytics_user.py
+```
+
+This starts the client where you can send your data. Both programs should run at the same time.
 
 ## How to Use
+
 ### 1. Search for Available Agents
+
 Use the following curl command to search for registered analytics agents:
+
 ```
 curl -X GET http://localhost:5002/api/search-agents
 ```
 
 ### 2. Send Dataset to Analytics Agent
+
 Send a dataset to the analytics agent for visualization:
+
 ```
 curl -X POST http://localhost:5002/api/send-data \
 -H "Content-Type: application/json" \
@@ -95,6 +116,7 @@ curl -X POST http://localhost:5002/api/send-data \
 ```
 
 ### 3. Get Dashboard URL
+
 Poll for the generated dashboard URL:
 
 ```
@@ -109,6 +131,4 @@ Sample output for this can be visited on : [Youtube Video](https://youtu.be/0tDd
 
 If you wish to learn more about fetch.ai SDK please visit [GitHub](https://github.com/fetchai/fetchai)
 
-
-
-"# Business-Analytics-Agent" 
+"# Business-Analytics-Agent"
